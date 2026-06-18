@@ -31,17 +31,25 @@ End-to-end data analytics project built with **SQL, Python, and Power BI** using
 
 ```
 retail-sales-analytics/
-├── data/                  # Raw + cleaned dataset
+├── data/                      # Raw + cleaned dataset (created on first run)
 ├── python/
-│   └── clean_data.py      # Data cleaning script
+│   ├── generate_sample_data.py  # Sample Superstore-style data (10K rows)
+│   ├── clean_data.py            # Data cleaning + feature engineering
+│   └── eda.py                   # 8 EDA charts → docs/eda_charts/
 ├── sql/
-│   └── analysis_queries.sql # 10+ business queries
+│   ├── schema.sql               # CREATE TABLE + COPY load
+│   └── analysis_queries.sql     # 17 business queries (CTEs, windows)
 ├── powerbi/
-│   └── dashboard_build_guide.md # Step-by-step Power BI build
+│   ├── dashboard_build_guide.md # Step-by-step build guide
+│   ├── dax_measures.dax         # 15+ DAX measures (copy-paste)
+│   └── retail_theme.json        # Custom Power BI theme
 ├── docs/
-│   ├── insights.md        # Findings + business insights
-│   └── resume_bullets.md  # Ready-to-paste resume bullets
+│   ├── insights.md              # Key business findings
+│   ├── eda_findings.md          # Chart-by-chart interpretation
+│   ├── resume_bullets.md        # Resume + LinkedIn + interview Q&A
+│   └── eda_charts/              # Generated PNG visualizations
 ├── requirements.txt
+├── .gitignore
 └── README.md
 ```
 
@@ -49,19 +57,35 @@ retail-sales-analytics/
 
 ## How to Run
 
+### Option A — Use the bundled sample data (no download needed)
+
 ```bash
 # 1. Install dependencies
 pip install -r requirements.txt
 
-# 2. Download dataset from Kaggle and place in data/superstore.csv
+# 2. Generate 10K rows of Superstore-style sample data
+python python/generate_sample_data.py
 
-# 3. Run cleaning script
+# 3. Clean + engineer features
 python python/clean_data.py
 
-# 4. Import cleaned data into PostgreSQL/MySQL/SQLite and run sql/analysis_queries.sql
+# 4. Generate 8 EDA charts
+python python/eda.py
 
-# 5. Open Power BI Desktop, import data/superstore_clean.csv, follow powerbi/dashboard_build_guide.md
+# 5. Load into PostgreSQL
+psql -U postgres -d retail -f sql/schema.sql
+psql -U postgres -d retail -f sql/analysis_queries.sql
+
+# 6. Open Power BI Desktop → import data/superstore_clean.csv
+#    → View → Themes → Browse for theme → powerbi/retail_theme.json
+#    → follow powerbi/dashboard_build_guide.md
 ```
+
+### Option B — Use the real Kaggle dataset
+
+1. Download from [Kaggle](https://www.kaggle.com/datasets/vivek468/superstore-dataset-final)
+2. Save to `data/superstore.csv` (skipping step 2 above)
+3. Continue from step 3
 
 ---
 

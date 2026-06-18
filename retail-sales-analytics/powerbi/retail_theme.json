@@ -1,0 +1,87 @@
+{
+  "name": "Retail Analytics Dark",
+  "dataColors": [
+    "#2E86AB",
+    "#A23B72",
+    "#F18F01",
+    "#06A77D",
+    "#D62828",
+    "#7B2CBF",
+    "#FCBF49",
+    "#003566"
+  ],
+  "background": "#1F2A44",
+  "foreground": "#FFFFFF",
+  "tableAccent": "#2E86AB",
+  "good": "#06A77D",
+  "neutral": "#FCBF49",
+  "bad": "#D62828",
+  "maximum": "#2E86AB",
+  "center": "#FCBF49",
+  "minimum": "#A23B72",
+  "textClasses": {
+    "title": {
+      "fontFace": "Segoe UI Light",
+      "fontSize": 14,
+      "color": "#FFFFFF"
+    },
+    "header": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 12,
+      "color": "#FFFFFF"
+    },
+    "label": {
+      "fontFace": "Segoe UI",
+      "fontSize": 10,
+      "color": "#E0E0E0"
+    },
+    "callout": {
+      "fontFace": "Segoe UI Bold",
+      "fontSize": 14,
+      "color": "#FFFFFF"
+    },
+    "value": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 11,
+      "color": "#FFFFFF"
+    }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [
+          {
+            "color": "#FFFFFF",
+            "transparency": 10
+          }
+        ],
+        "border": [
+          {
+            "color": "#2E86AB",
+            "width": 1
+          }
+        ]
+      }
+    },
+    "page": {
+      "*": {
+        "background": [
+          {
+            "color": "#1F2A44",
+            "transparency": 0
+          }
+        ]
+      }
+    },
+    "card": {
+      "*": {
+        "background": [
+          {
+            "color": "#2E86AB",
+            "transparency": 30
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+env/
+
+# Data - large/sensitive files
+data/superstore.csv
+data/superstore_clean.csv
+*.csv
+!docs/**/*.csv
+
+# Power BI
+*.pbix
+*.pbix.bak
+*.pbit
+
+# IDE
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# OS
+Thumbs.db
+
+# Logs
+*.log
+
+# Environment
+.env
+.env.local
