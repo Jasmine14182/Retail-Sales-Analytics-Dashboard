@@ -1,0 +1,13 @@
+DATA CLEANING SUMMARY
+==================================================
+
+                rows: 10000
+             columns: 29
+          date_range: 2015-01-01 to 2018-12-30
+       total_revenue: 11612356.53
+        total_profit: 1117881.8
+   profit_margin_pct: 9.63
+    unique_customers: 2220
+     unique_products: 73
+          categories: 3
+             regions: 4
