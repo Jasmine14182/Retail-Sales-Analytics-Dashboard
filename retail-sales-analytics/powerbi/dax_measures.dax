@@ -1,0 +1,57 @@
+// ============================================================================
+// Power BI DAX Measures - Copy & paste into your model
+// ============================================================================
+
+// ----- Core KPIs -----
+Total Revenue = SUM(superstore[sales])
+
+Total Profit = SUM(superstore[profit])
+
+Total Orders = DISTINCTCOUNT(superstore[row_id])
+
+Total Customers = DISTINCTCOUNT(superstore[customer_name])
+
+Total Quantity = SUM(superstore[quantity])
+
+// ----- Derived KPIs -----
+Profit Margin % =
+DIVIDE([Total Profit], [Total Revenue], 0)
+
+Avg Order Value =
+DIVIDE([Total Revenue], [Total Orders], 0)
+
+Avg Discount =
+AVERAGE(superstore[discount])
+
+Revenue Per Customer =
+DIVIDE([Total Revenue], [Total Customers], 0)
+
+// ----- Time Intelligence -----
+Revenue YTD =
+TOTALYTD([Total Revenue], 'Date'[Date])
+
+Revenue Last Year =
+CALCULATE([Total Revenue], SAMEPERIODLASTYEAR('Date'[Date]))
+
+Revenue YoY Growth % =
+DIVIDE(
+    [Total Revenue] - [Revenue Last Year],
+    [Revenue Last Year],
+    0
+)
+
+Revenue MTD =
+TOTALMTD([Total Revenue], 'Date'[Date])
+
+// ----- Ranking -----
+Region Revenue Rank =
+RANKX(ALL(superstore[region]), [Total Revenue], , DESC, Dense)
+
+// ----- Conditional Formatting Helper -----
+Profit Color =
+SWITCH(
+    TRUE(),
+    [Total Profit] >= 50000, "Green",
+    [Total Profit] >= 0,     "Yellow",
+    "Red"
+)
